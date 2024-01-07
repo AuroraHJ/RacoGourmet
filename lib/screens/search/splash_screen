@@ -1,0 +1,59 @@
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:supabase_example/app/routes/app_pages.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    Timer(
+      const Duration(seconds: 3),
+      () => Navigator.pushReplacementNamed(context, Routes.LOGIN),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.green,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Benvingut!',
+              style: TextStyle(color: Colors.white, fontSize: 18.0),
+            ),
+            SizedBox(height: 20.0),
+            Container(
+              width: 150.0,
+              height: 150.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: Image.asset(
+                'assets/images/icono_app.png',
+                fit: BoxFit.contain,
+              ),
+            ),
+            SizedBox(height: 25.0),
+            Image.asset(
+              'assets/images/loading.gif',
+              width: 50.0,
+              height: 50.0,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
