@@ -1,32 +1,37 @@
-class Restaurants {
-  int? id;
-  int? userId;
-  String? nom_rest;
-  String? ciutat_rest;
+class Receptes {
+  int? idRecepte;
+  int? idUsuari;
   String? createdAt;
+  String? nomRecepte;
+  String? preparacio;
 
-  Restaurants({this.id, this.userId, this.nom_rest, this.ciutat_rest, this.createdAt});
+  Receptes(
+      {this.idRecepte,
+      this.idUsuari,
+      this.createdAt,
+      this.nomRecepte,
+      this.preparacio});
 
-  Restaurants.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    userId = json['user_id'];
-    nom_rest = json['nom_rest'];
-    ciutat_rest = json['ciutat_rest'];
+  Receptes.fromJson(Map<String, dynamic> json) {
+    idRecepte = json['id'];
+    idUsuari = json['FK_idUsuari'];
     createdAt = json['created_at'];
+    nomRecepte = json['titol'];
+    preparacio = json['preparacio'];
   }
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
-    data['id'] = id;
-    data['user_id'] = userId;
-    data['nom_rest'] = nom_rest;
-    data['ciutat_rest'] = ciutat_rest;
+    data['id'] = idRecepte;
+    data['FK_idUsuari'] = idUsuari;
     data['created_at'] = createdAt;
+    data['titol'] = nomRecepte;
+    data['preparacio'] = preparacio;
     return data;
   }
 
-  static List<Restaurants> fromJsonList(List? data) {
+  static List<Receptes> fromJsonList(List? data) {
     if (data == null || data.isEmpty) return [];
-    return data.map((e) => Restaurants.fromJson(e)).toList();
+    return data.map((e) => Receptes.fromJson(e)).toList();
   }
 }

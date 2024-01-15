@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:supabase_example/app/routes/app_pages.dart';
-
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
@@ -11,23 +9,16 @@ class RegisterView extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-          'Registre',
-          style: TextStyle(
-            color: Colors.white, // Cambia el color del texto aquí
+          title: const Text(
+            'Registre',
+            style: TextStyle(
+              color: Colors.white, // Cambia el color del texto aquí
+            ),
           ),
+          backgroundColor: const Color.fromARGB(255, 255, 144, 242),
         ),
-          backgroundColor: Color.fromARGB(255, 67, 218, 30),
-          // actions: [
-          //   IconButton(
-          //     onPressed: () async {
-          //       Get.back();
-          //     },
-          //     icon: const Icon(Icons.person),
-          //   )
-          // ],
-        ),
-        backgroundColor: Color.fromARGB(255, 255, 255, 255), // Change the background color here
+        backgroundColor: const Color.fromARGB(
+            255, 255, 255, 255), // Change the background color here
         body: ListView(
           padding: const EdgeInsets.all(10),
           children: [
@@ -82,13 +73,13 @@ class RegisterView extends GetView<RegisterController> {
                       controller.signUp();
                     }
                   },
-                  
-  style: ElevatedButton.styleFrom(
-    backgroundColor: Color.fromARGB(255, 42, 233, 24), // Change the button background color here
-    foregroundColor: Colors.black,
-  ),
-                  child: Text(
-                      controller.isLoading.isFalse ? "REGISTRE" : "Carregant..."),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 255, 144, 242), 
+                    foregroundColor: Colors.white,
+                  ),
+                  child: Text(controller.isLoading.isFalse
+                      ? "REGISTRE"
+                      : "Carregant..."),
                 )),
           ],
         ));

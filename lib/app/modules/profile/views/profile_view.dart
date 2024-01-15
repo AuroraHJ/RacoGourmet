@@ -1,26 +1,23 @@
 // ignore_for_file: use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_example/app/controllers/auth_controller.dart';
 import 'package:supabase_example/app/routes/app_pages.dart';
-
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
   final authC = Get.find<AuthController>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-           title: Text(
-          'Perfil',
-          style: TextStyle(
-            color: Colors.white, // Cambia el color del texto aquí
+          title: const Text(
+            'Perfil',
+            style: TextStyle(
+              color: Colors.white, 
+            ),
           ),
-        ),   
-          backgroundColor: Color.fromARGB(255, 67, 218, 30),
+          backgroundColor: const Color.fromARGB(255, 255, 144, 242),
           actions: [
             TextButton(
                 onPressed: () async {
@@ -75,7 +72,7 @@ class ProfileView extends GetView<ProfileController> {
                     controller: controller.passwordC,
                     textInputAction: TextInputAction.done,
                     decoration: const InputDecoration(
-                      labelText: "Nova contrassenya",
+                      labelText: "Nova contrasenya",
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -104,10 +101,10 @@ class ProfileView extends GetView<ProfileController> {
                             }
                           }
                         },
-                          style: ElevatedButton.styleFrom(
-    backgroundColor: Color.fromARGB(255, 42, 233, 24), // Change the button background color here
-    foregroundColor: Colors.black,
-  ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color.fromARGB(255, 255, 144, 242), // Change the button background color here
+                          foregroundColor: Colors.white,
+                        ),
                         child: Text(controller.isLoading.isFalse
                             ? "ACTUALITZAR PERFIL"
                             : "Carregant..."),

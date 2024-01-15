@@ -20,21 +20,21 @@ class ProfileController extends GetxController {
 
   Future<void> getProfile() async {
     List<dynamic> res = await client
-        .from("users")
+        .from("usuaris")
         .select()
-        .match({"uid": client.auth.currentUser!.id});
+        .match({"id": client.auth.currentUser!.id});
     Map<String, dynamic> user = (res).first as Map<String, dynamic>;
-    nameC.text = user["name"];
-    nameC2.text = user["name"];
+    nameC.text = user["nom"];
+    nameC2.text = user["cognoms"];
     emailC.text = user["email"];
   }
 
   Future<void> updateProfile() async {
     if (nameC2.text.isNotEmpty) {
       isLoading.value = true;
-      await client.from("users").update({
-        "name": nameC2.text,
-      }).match({"uid": client.auth.currentUser!.id});
+      await client.from("usuaris").update({
+        "cognoms": nameC2.text,
+      }).match({"id": client.auth.currentUser!.id});
       // if user want to update password
       if (passwordC.text.isNotEmpty) {
         if (passwordC.text.length >= 6) {
@@ -46,12 +46,12 @@ class ProfileController extends GetxController {
             Get.snackbar("ERROR", e.toString());
           }
         } else {
-          Get.snackbar("ERROR", "La contrasenya ha de tenir 6 caràcters");
+          Get.snackbar("ERROR", "La contrasenya ha de tenir 6 caràcters com a mínim");
         }
       }
       Get.defaultDialog(
           barrierDismissible: false,
-          title: "Actualtizat amb èxit",
+          title: "Actualtizat amb èxit!",
           middleText: "S'actualitzaran els camps corresponents",
           actions: [
             OutlinedButton(

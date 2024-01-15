@@ -7,9 +7,7 @@ class LoginController extends GetxController {
   RxBool isHidden = true.obs;
   TextEditingController emailC = TextEditingController();
   TextEditingController passwordC = TextEditingController();
-
   SupabaseClient client = Supabase.instance.client;
-
   Future<bool?> login() async {
     if (emailC.text.isNotEmpty && passwordC.text.isNotEmpty) {
       isLoading.value = true;
@@ -19,16 +17,16 @@ class LoginController extends GetxController {
         isLoading.value = false;
         Get.defaultDialog(
             barrierDismissible: false,
-            title: "Benvingut",
-            middleText: "Entrant",
-            backgroundColor: Colors.green);
+            title: "Comencem!",
+            middleText: "Preparant motors...",
+            backgroundColor: const Color.fromARGB(255, 255, 144, 242));
         return true;
       } catch (e) {
         isLoading.value = false;
         Get.snackbar("ERROR", e.toString());
       }
     } else {
-      Get.snackbar("ERROR", "Els camps són obligatoris");
+      Get.snackbar("ERROR", "Els camps són obligatoris!");
     }
     return null;
   }

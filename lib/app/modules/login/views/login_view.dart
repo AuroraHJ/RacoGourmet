@@ -2,24 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_example/app/controllers/auth_controller.dart';
 import 'package:supabase_example/app/routes/app_pages.dart';
-
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
   final authC = Get.find<AuthController>();
-
   LoginView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-          'Login',
-          style: TextStyle(
-            color: Colors.white, // Cambia el color del texto aquí
+          title: const Text(
+            'Login',
+            style: TextStyle(
+              color: Colors.white, 
+            ),
           ),
-        ),   
-          backgroundColor: Color.fromARGB(255, 67, 218, 30),
+          backgroundColor: const Color.fromARGB(255, 255, 144, 242),
         ),
         body: ListView(
           padding: const EdgeInsets.all(10),
@@ -64,10 +62,10 @@ class LoginView extends GetView<LoginController> {
                       }
                     }
                   },
-                    style: ElevatedButton.styleFrom(
-    backgroundColor: Color.fromARGB(255, 42, 233, 24), // Change the button background color here
-    foregroundColor: Colors.black,
-  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 255, 144, 242), // Change the button background color here
+                    foregroundColor: Colors.white,
+                  ),
                   child: Text(
                       controller.isLoading.isFalse ? "LOGIN" : "Carregant..."),
                 )),
@@ -76,10 +74,10 @@ class LoginView extends GetView<LoginController> {
             ),
             ElevatedButton(
                 onPressed: () => Get.toNamed(Routes.REGISTER),
-                  style: ElevatedButton.styleFrom(
-    backgroundColor: Color.fromARGB(255, 42, 233, 24), // Change the button background color here
-    foregroundColor: Colors.black,
-  ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 255, 144, 242), // Change the button background color here
+                  foregroundColor: Colors.white,
+                ),
                 child: const Text("REGISTRE"))
           ],
         ));

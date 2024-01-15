@@ -28,9 +28,9 @@ class Tile extends StatelessWidget {
                 Text(
                   title,
                   style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                  fontSize: 30.0,
-                  color: Colors.white,
-                  ),
+                        fontSize: 30.0,
+                        color: Colors.white,
+                      ),
                   textAlign: TextAlign.end,
                 )
               ])),

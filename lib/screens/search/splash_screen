@@ -23,13 +23,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: const Color.fromARGB(255, 255, 144, 242),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Benvingut!',
+              'RACÓ GOURMET',
               style: TextStyle(color: Colors.white, fontSize: 18.0),
             ),
             SizedBox(height: 20.0),

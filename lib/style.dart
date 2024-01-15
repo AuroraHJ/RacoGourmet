@@ -6,14 +6,13 @@ final TextStyle placeholderTextFieldStyle =
 
 final appTheme = ThemeData(
   appBarTheme: AppBarTheme(
-      color: Colors.grey.shade900,
+      color: const Color.fromARGB(255, 0, 0, 0),
       elevation: 0,
       titleTextStyle: TextStyle(
           fontSize: 26.0, fontFamily: GoogleFonts.rubik().fontFamily)),
   brightness: Brightness.light,
-  primaryColor: Colors.grey.shade900,
+  primaryColor: const Color.fromARGB(255, 0, 0, 0),
   fontFamily: GoogleFonts.outfit().fontFamily,
-  // fontFamily: 'Open sans',
   textTheme: TextTheme(
       displayLarge: const TextStyle(fontSize: 36.0),
       displayMedium: const TextStyle(

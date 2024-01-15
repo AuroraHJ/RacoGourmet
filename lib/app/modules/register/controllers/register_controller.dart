@@ -8,7 +8,6 @@ class RegisterController extends GetxController {
   TextEditingController nameC = TextEditingController();
   TextEditingController emailC = TextEditingController();
   TextEditingController passwordC = TextEditingController();
-
   SupabaseClient client = Supabase.instance.client;
 
   Future<void> signUp() async {
@@ -22,16 +21,16 @@ class RegisterController extends GetxController {
         isLoading.value = false;
 
         // insert registered user to table users
-        await client.from("users").insert({
-          "name": nameC.text,
+        await client.from("usuaris").insert({
+          "nom": nameC.text,
           "email": emailC.text,
           "created_at": DateTime.now().toIso8601String(),
-          "uid": res.user!.id,
+          "id": res.user!.id,
         });
 
         Get.defaultDialog(
             barrierDismissible: false,
-            title: "Registre realitzat amb èxit",
+            title: "Registre realitzat amb èxit!",
             middleText: "Confirma l'email: ${res.user!.email}",
             actions: [
               OutlinedButton(
@@ -46,7 +45,7 @@ class RegisterController extends GetxController {
         Get.snackbar("ERROR", e.toString());
       }
     } else {
-      Get.snackbar("ERROR", "Els tres camps són obligatoris");
+      Get.snackbar("ERROR", "Els tres camps són obligatoris!");
     }
   }
 }

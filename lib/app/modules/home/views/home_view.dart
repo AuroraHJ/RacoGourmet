@@ -2,17 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase_example/app/data/models/notes_model.dart';
 import 'package:supabase_example/app/routes/app_pages.dart';
-
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('HOME'),
+          title: const Text('INICI'),
           centerTitle: true,
           actions: [
             IconButton(
@@ -31,25 +29,25 @@ class HomeView extends GetView<HomeController> {
               }
               return Obx(() => controller.allNotes.isEmpty
                   ? const Center(
-                      child: Text("NO DATA"),
+                      child: Text("NO HI HA INFORMACIO"),
                     )
                   : ListView.builder(
                       itemCount: controller.allNotes.length,
                       itemBuilder: (context, index) {
-                        Restaurants restaurant = controller.allNotes[index];
+                        Receptes receptes = controller.allNotes[index];
                         return ListTile(
                           onTap: () => Get.toNamed(
                             Routes.EDIT_NOTE,
-                            arguments: restaurant,
+                            arguments: receptes,
                           ),
                           leading: CircleAvatar(
-                            child: Text("t${restaurant.id}"),
+                            child: Text("t${receptes.idRecepte}"),
                           ),
-                          title: Text("restaurant: ${restaurant.nom_rest}"),
-                          subtitle: Text("ciutat: ${restaurant.ciutat_rest}"),
+                          title: Text("titol: ${receptes.nomRecepte}"),
+                          subtitle: Text("preparacio: ${receptes.preparacio}"),
                           trailing: IconButton(
-                            onPressed: () async =>
-                                await controller.deleteNote(restaurant.id!),
+                            onPressed: () async => await controller
+                                .deleteNote(receptes.idRecepte!),
                             icon: const Icon(Icons.delete),
                           ),
                         );

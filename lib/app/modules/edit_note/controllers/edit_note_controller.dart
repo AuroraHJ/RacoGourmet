@@ -13,8 +13,8 @@ class EditNoteController extends GetxController {
     if (titleC.text.isNotEmpty && descC.text.isNotEmpty) {
       isLoading.value = true;
       await client
-          .from("restaurants")
-          .update({"nom_rest": titleC.text, "ciutat_rest": descC.text}).match({
+          .from("receptes")
+          .update({"titol": titleC.text, "preparacio": descC.text}).match({
         "id": id,
       });
       return true;
